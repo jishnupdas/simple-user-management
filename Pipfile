@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+gunicorn = "*"
+django-registration = "*"
+django-extensions = "*"
+django-restframework = "*"
+djangorestframework-simplejwt = "*"
+django-filter = "*"
+drf-yasg = "*"
+psycopg2-binary = "*"
+django-cors-headers = "*"
+factory-boy = "*"
+drf-flex-fields = "*"
+
+[dev-packages]
+isort = "*"
+black = "*"
+werkzeug = "*"
+pytest-django = "*"
+pre-commit = "*"
+ipython = "*"
+django-debug-toolbar = "*"
+
+[requires]
+python_version = "3"
+
+[pipenv]
+allow_prereleases = true

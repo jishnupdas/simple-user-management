@@ -1,0 +1,30 @@
+default_language_version:
+  # default language version for each language used in the repository
+  python: python3
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      # See https://pre-commit.com/hooks.html for more hooks
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: name-tests-test
+        args: ["--django"]
+      - id: trailing-whitespace
+  - repo: https://github.com/psf/black
+    rev: 21.12b0
+    hooks:
+      - id: black
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v2.4.1"
+    hooks:
+      - id: prettier
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.1
+    hooks:
+      - id: bandit
+        args: ["-iii", "-ll"]
