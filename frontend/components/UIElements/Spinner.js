@@ -1,6 +1,6 @@
-const Spinner = ({ color = "green-500" }) => (
+const Spinner = () => (
   <div
-    className={`w-4 h-4 border-r-2 border-b-2 animate-spin border-green-500 rounded-full`}
+    className={`h-6 w-6 animate-spin rounded-full border-r-2 border-b-2 border-cyan-500`}
   ></div>
 );
 

@@ -1,7 +1,5 @@
-// import SetLocalStorage from "./storage/setLocalStorage";
-// import { Capacitor } from "@capacitor/core";
 import axios from "axios";
-// import useLocalStorage from "./storage/useLocalStorage";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Axios = axios.create({
   baseURL: "http://localhost:8000/api/",

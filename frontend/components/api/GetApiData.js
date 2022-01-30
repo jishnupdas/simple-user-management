@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import Axios from "../Axios";
+import Axios from "../setup/Axios";
 import { useInfiniteQuery } from "react-query";
 
 const GetApiData = ({ key, pageParam, queryParams, ...props }) => {
