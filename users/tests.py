@@ -12,6 +12,7 @@ class AppUserTest(TestCase):
             username="username",
             password="X5j13$#e",
             phone="7894561234",
+            role="admin",
             email="any_email@example.com",
             first_name="Firstname",
             last_name="Lastname",
@@ -23,6 +24,7 @@ class AppUserTest(TestCase):
         self.assertEqual(self.data.username, "username")
         self.assertEqual(self.data.password, "X5j13$#e")
         self.assertEqual(self.data.phone, "7894561234")
+        self.assertEqual(self.data.role, "admin")
         self.assertEqual(self.data.email, "any_email@example.com")
         self.assertEqual(self.data.first_name, "Firstname")
         self.assertEqual(self.data.last_name, "Lastname")

@@ -24,6 +24,7 @@ class AppUser(AbstractUser):
         help_text=_("Role of the user. eg User, admin, staff, etc"),
         max_length=100,
         choices=role_choices,
+        default="user",
     )
 
     def __str__(self):
