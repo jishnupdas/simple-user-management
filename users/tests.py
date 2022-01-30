@@ -48,7 +48,7 @@ class UserAPITest(APITestCase):
     def test_list_url(self):
         response = self.client.get("/api/users/", format="json")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.data), 2)
+        self.assertEqual(len(response.data["results"]), 2)
 
     def test_create_user(self):
         self.client.force_authenticate(user=self.user1)
@@ -69,7 +69,7 @@ class UserAPITest(APITestCase):
 
         response = self.client.get("/api/users/", format="json")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.data), 3)
+        self.assertEqual(len(response.data["results"]), 3)
 
 
 class AuthenticationAPI(APITestCase):
