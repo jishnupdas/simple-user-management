@@ -70,6 +70,26 @@ class UserAPITest(APITestCase):
         response = self.client.get("/api/users/", format="json")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data["results"]), 3)
+        self.assertEqual(response.data["count"], 3)
+
+    def test_patch_user(self):
+        self.client.force_authenticate(user=self.user1)
+        data = {
+            "username": "user001",
+            "role": "user",
+            "is_staff": True,
+            "is_active": True,
+        }
+
+        response = self.client.patch(
+            f"/api/users/{self.user1.id}/", data, format="json"
+        )
+        self.assertEqual(response.status_code, 200)
+
+    def test_delete_user(self):
+        self.client.force_authenticate(user=self.user1)
+        response = self.client.delete(f"/api/users/{self.user1.id}/")
+        self.assertEqual(response.status_code, 204)
 
 
 class AuthenticationAPI(APITestCase):
