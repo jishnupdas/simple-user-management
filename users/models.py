@@ -9,8 +9,8 @@ class AppUser(AbstractUser):
     """
 
     role_choices = [
-        ("User", "user"),
-        ("Admin", "admin"),
+        ("user", "User"),
+        ("admin", "Admin"),
     ]
     phone = models.CharField(
         verbose_name=_("Phone number"),
