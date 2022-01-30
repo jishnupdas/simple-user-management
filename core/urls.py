@@ -7,13 +7,16 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
+# system urls
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/users/", include("users.urls", namespace="users")),
+    path("__debug__/", include(debug_toolbar.urls)),
 ]
 
+# api urls
 urlpatterns += [
-    path("api-auth/", include("rest_framework.urls")),
+    path("api/auth/", include("rest_framework.urls")),
+    path("api/users/", include("users.urls", namespace="users")),
 ]
 
 schema_view = get_schema_view(
