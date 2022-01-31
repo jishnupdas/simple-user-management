@@ -74,11 +74,13 @@ Frontend is built with `NextJs` as it provides a lot of benefits over ReactJs, w
 ## Libraries used
 
 - `react-query` to get frontend-cache and generally speedup the UX. The other alternatives are (SWR or fetch). Powerful features and great community support is the prime reason to pick this one.
+- `TailwindCSS` for CSS
+- `framer-motion` for animations and page transitions
 - `Axios` an objectively better approach over fetch
 - `Formik` for forms
 - `Yup` for form validation
 
-Any of these libraries are easily replacebale if constraints are placed.
+Any of these libraries are easily replaceable if constraints are placed on requirements.
 
 ### Design Considerations
 
@@ -103,8 +105,9 @@ yarn dev
 
 ---
 
-### Improvements that can be made
+# Improvements that can be made
 
-- add optimistic UI to frontend, with useMutation/caches
-- add login/authentication on frontend
-- add typescript support
+- [ ] add optimistic UI to frontend, with useMutation/caches
+- [ ] add login/authentication on frontend
+- [ ] add typescript support
+- [ ] add animations to updates, delets actions

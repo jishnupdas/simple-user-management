@@ -22,7 +22,7 @@ const UpdateUser = () => {
       </Head>
 
       <Layout>
-        <div className="max-w-xl -mx-3 md:mx-auto md:w-full">
+        <div className="max-w-lg -mx-3 md:mx-auto md:w-full xl:max-w-lg">
           <div className="flex items-center mb-6 space-x-3">
             <button onClick={() => router.back()}>
               <ArrowLeft className="icon-btn" />

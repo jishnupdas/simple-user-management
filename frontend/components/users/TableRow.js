@@ -17,7 +17,7 @@ const UserRow = ({ user }) => {
       <td className="table-cell">{user.email}</td>
       <td className="table-cell">{user.role}</td>
       <td className="table-cell">
-        <div className="flex flex-row space-x-3">
+        <div className="flex flex-row mr-3 space-x-2 md:space-x-3">
           <button onClick={() => setVisible(true)}>
             <DeleteIcon className="text-red-700 icon-btn" />
           </button>
