@@ -1,4 +1,4 @@
-const ArrowLeft = ({ className = "w-6 h-6", strokeWidth = 2 }) => {
+const ArrowLeft = ({ className = "w-6 h-6", strokeWidth = 3 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -4,7 +4,6 @@ import Spinner from "../UIElements/Spinner";
 
 const Navbar = () => {
   const isFetching = useIsFetching();
-  console.log(isFetching);
   return (
     <nav className="sticky top-0 flex items-center justify-between w-full px-3 py-5 bg-white shadow fle-row md:px-8">
       <div className="text-lg font-bold">Archimydes Challenge</div>

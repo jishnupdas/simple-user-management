@@ -11,7 +11,7 @@ import slugify from "../setup/slugify";
 const formData = [
   { name: "first_name", type: "text", label: "Fisrt Name" },
   { name: "last_name", type: "text", label: "Last Name" },
-  { name: "email", type: "email-address", label: "e-mail" },
+  { name: "email", type: "email", label: "e-mail" },
   // { name: "role", type: "text", label: "Role" },
 ];
 
@@ -19,8 +19,8 @@ const UserSchema = Yup.object().shape({
   first_name: Yup.string()
     .min(5, "Minimum 5 letters required")
     .required("Name is required"),
-  last_name: Yup.string(),
-  email: Yup.string().required("Email is required"),
+  last_name: Yup.string().nullable(),
+  email: Yup.string().email().required("Email is required"),
   role: Yup.string().required("Role is required"),
 });
 
@@ -43,11 +43,10 @@ const UserForm = ({ user, editing = false }) => {
         first_name: "",
         last_name: "",
         email: "",
-        role: "",
+        role: "user",
       };
 
   const roles = ["user", "admin"];
-  const [role, setRole] = useState(user?.role);
 
   const SubmitForm = async ({ values }) => {
     setLoading(true);
@@ -55,8 +54,6 @@ const UserForm = ({ user, editing = false }) => {
     console.log({ values });
     if (editing === true) {
       let url = `/users/${values.id}/`;
-      console.log(url);
-      console.log(values);
       const res = await Axios.patch(url, values);
       if (res.status == 200) {
         console.log("Details successfully updated");
@@ -65,7 +62,6 @@ const UserForm = ({ user, editing = false }) => {
       }
     } else {
       console.log("creating users");
-      delete values.id;
       let url = `/users/`;
       const res = await Axios.post(url, values);
       if (res.status == 201) {
@@ -114,18 +110,17 @@ const UserForm = ({ user, editing = false }) => {
             ))}
             <div>
               <label className="text-sm text-gray-500 uppercase">Role</label>
-              <select
-                id={"role"}
-                name={"role"}
+              <Field
+                as="select"
+                name="role"
                 className="w-full px-2 py-2 my-1 bg-white border border-gray-300 rounded-md"
-                onChange={(e) => setRole(e.target.value)}
               >
                 {roles.map((role) => (
                   <option value={role} key={role}>
                     {role}
                   </option>
                 ))}
-              </select>
+              </Field>
             </div>
 
             <div className="w-full mt-8 space-y-3">
@@ -137,9 +132,11 @@ const UserForm = ({ user, editing = false }) => {
               </div>
               <button
                 type="submit"
-                className="w-full cursor-pointer btn btn-primary hover:scale-100"
+                className={`btn w-full cursor-pointer ${
+                  isValid ? "btn-primary" : "cursor-not-allowed bg-gray-200"
+                } hover:scale-100`}
                 onClick={handleSubmit}
-                // disabled={!isValid}
+                disabled={!isValid}
               >
                 <span className="w-full text-center">
                   {editing ? "Update" : "Create User"}
