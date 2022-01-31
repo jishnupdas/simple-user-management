@@ -48,6 +48,9 @@ pip install -r requirements.txt
 ```
 
 ```bash
+#setup aa environment variable for settings file
+export DJANGO_SETTINGS_MODULE="core.settings.dev"
+
 #migrate to create database locally
 python manage.py migrate
 
@@ -111,3 +114,50 @@ yarn dev
 - [ ] add login/authentication on frontend
 - [ ] add typescript support
 - [ ] add animations to updates, delets actions
+
+# Full setup
+
+```bash
+pipenv install
+#or
+pip install -r requirements.txt
+
+#setup aa environment variable for settings file
+export DJANGO_SETTINGS_MODULE="core.settings.dev"
+
+#migrate to create database locally
+python manage.py migrate
+
+# load some sample fixtures
+python manage.py loaddata sampledata.json
+
+# run the python server
+python manage.py runserver &
+
+# change into react dir
+cd frontend
+
+# install npm packages
+npm install
+
+# start dev server
+npm run dev
+
+# go to localhost:3000
+```
+
+## swagger
+
+```
+localhost:8000/swagger/
+```
+
+## tests
+
+```bash
+python manage.py test
+
+# or
+
+pytest
+```
